@@ -11,3 +11,11 @@ To create a new documentation project using this skeleton, run the following com
 git clone 'this-repo-url'
 poetry install
 ```
+
+## Run local build
+
+To build the project locally to `site/`, you can simply run `poetry run mkdocs build`
+
+## Build in GitHub Pages
+
+Merge to `master` branch in any Repository. The scripts at `.github/workflows/` will be executed by Github Actions.

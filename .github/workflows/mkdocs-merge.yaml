@@ -28,4 +28,4 @@ jobs:
       - name: Install the project dependencies
         run: poetry install
       - name: Run the automated tests (for example)
-        run: poetry mkdocs gh-deploy --force
+        run: poetry run mkdocs gh-deploy --force

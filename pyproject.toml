@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "doc-skeleton"
+version = "0.1.0"
+description = ""
+authors = ["Jani Sourander <sourander@gmail.com>"]
+readme = "README.md"
+packages = [{include = "doc_skeleton"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+mkdocs-material = "^9.1.18"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

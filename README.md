@@ -16,6 +16,8 @@ poetry install
 
 To build the project locally to `site/`, you can simply run `poetry run mkdocs build`
 
+Alternatively, you can run the `mkdocs serve` command to run live-reloading server.
+
 ## Build in GitHub Pages
 
 Merge to `master` branch in any Repository. The scripts at `.github/workflows/` will be executed by Github Actions.

@@ -7,7 +7,7 @@ Below, you can see a demonstration of all extensions that have been activated in
 
 ## Syntax highlighting
 
-The code block also demonstrates the copy code and the annotation functionality.
+The code block also demonstrates the copy code, annotation, mark text and keyboard keys functionalities
 
 ```python
 import os
@@ -18,6 +18,8 @@ print(a)
 
 1.  :cat: I'm a code annotation! I can contain `code`, __formatted
     text__, images, ... basically anything that can be written in Markdown.
+
+Clicking the ==Copy to clipboard== saves you from a tedious ++ctrl+c++ process.
 
 # Emoji
 

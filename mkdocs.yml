@@ -26,6 +26,10 @@ markdown_extensions:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
+  # Keyboard key symbols
+  - pymdownx.keys
+  # Mark text by wrapping it between dual pairs of = symbols
+  - pymdownx.mark
 
 plugins:
   # Navigation page ordering
@@ -45,3 +49,7 @@ plugins:
       nav_translations:
         fi:
           Omega to Alpha: Z:sta A:aan
+
+copyright: |
+  Copyright &copy; 2023 Jani Sourander <a href="https://www.kamk.fi">KAMK</a>. 
+  Licenced under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">BY-NC-ND 4.0</a>

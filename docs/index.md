@@ -13,5 +13,6 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
     mkdocs.yml    # The configuration file.
     docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+        index.md    # The documentation homepage.
+        index.fi.md # The documentation homepage in Finnish.
+        ...         # Other markdown pages, images and other files.

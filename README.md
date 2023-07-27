@@ -8,15 +8,28 @@
 
 To create a new documentation project using this skeleton, run the following commands:
 ```bash
+# Clone
 git clone 'this-repo-url'
+
+# Update your Python Poetry and install dependencies
+poetry self update
 poetry install
+
+# Consider updating the dependency versions. Test functionality before releasing.
+poetry update
 ```
+
+## Batteries Included?
+
+This template comes with two plugins: 
+* [MkDocs static i18n](https://github.com/ultrabug/mkdocs-static-i18n) for multilanguage
+* [MkDocs Awesome Pages](https://github.com/lukasgeiter/mkdocs-awesome-pages-plugin) for page ordering
 
 ## Run local build
 
 To build the project locally to `site/`, you can simply run `poetry run mkdocs build`
 
-Alternatively, you can run the `mkdocs serve` command to run live-reloading server.
+Alternatively, you can run the `poetry run mkdocs serve` command to run live-reloading server.
 
 ## Build in GitHub Pages
 

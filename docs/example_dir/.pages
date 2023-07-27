@@ -1,0 +1,3 @@
+nav:
+    - ... | omega*.md  # Note that with i18n plugin we must use
+    - ... | alpha*.md  # a glob pattern to include both language versions

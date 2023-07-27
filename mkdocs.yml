@@ -2,3 +2,46 @@ site_name: Skeleton for Documentation Project
 
 theme:
   name: material
+  features:
+    - content.code.copy     # add copy button to code blocks
+    - content.code.annotate # add annotation support to code blocks
+
+markdown_extensions:
+  # SYNTAX HIGHLIGHTING
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  # EMOJIS AND ICONS
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  # MERMAID DIAGRAMS
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+plugins:
+  # Navigation page ordering
+  - awesome-pages
+  # Language Selector
+  - i18n:
+      docs_structure: suffix
+      default_language: en
+      languages:
+        en:
+          name: English
+          build: true
+        fi:
+          name: Finnish
+          build: true
+      # You can translate navigation items here if need be
+      nav_translations:
+        fi:
+          Omega to Alpha: Z:sta A:aan

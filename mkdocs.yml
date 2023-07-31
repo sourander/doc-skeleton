@@ -5,6 +5,18 @@ theme:
   features:
     - content.code.copy     # add copy button to code blocks
     - content.code.annotate # add annotation support to code blocks
+  # Day and night mode
+  palette:
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+    # Palette toggle for light mode
+    - scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
 
 markdown_extensions:
   # SYNTAX HIGHLIGHTING
@@ -34,6 +46,7 @@ markdown_extensions:
 plugins:
   # Navigation page ordering
   - awesome-pages
+  - search
   # Language Selector
   - i18n:
       docs_structure: suffix

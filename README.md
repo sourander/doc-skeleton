@@ -25,6 +25,9 @@ This template comes with two plugins:
 * [MkDocs static i18n](https://github.com/ultrabug/mkdocs-static-i18n) for multilanguage
 * [MkDocs Awesome Pages](https://github.com/lukasgeiter/mkdocs-awesome-pages-plugin) for page ordering
 
+If you do not have a reason for using multilanguage, you can also delete the dependency `poetry remove 
+mkdocs-static-i18n` and remove the plugin from `mkdocs.yml`.
+
 ## Run local build
 
 To build the project locally to `site/`, you can simply run `poetry run mkdocs build`

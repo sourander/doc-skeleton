@@ -1,8 +1,5 @@
 # Extensions How-To
 
-This file lacks translation(s) on purpose to demonstrate the default-language functionality. English versions is 
-always shown, as it is the only existing language.
-
 Below, you can see a demonstration of all extensions that have been activated in the default `mkdocs.yml` file.
 
 ## Syntax highlighting

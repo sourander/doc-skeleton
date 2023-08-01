@@ -47,21 +47,6 @@ plugins:
   # Navigation page ordering
   - awesome-pages
   - search
-  # Language Selector
-  - i18n:
-      docs_structure: suffix
-      default_language: en
-      languages:
-        en:
-          name: English
-          build: true
-        fi:
-          name: Finnish
-          build: true
-      # You can translate navigation items here if need be
-      nav_translations:
-        fi:
-          Omega to Alpha: Z:sta A:aan
 
 # TODO: Replace the copyright with correct. Also add LICENCE file. Template included.
 copyright: |

@@ -20,8 +20,6 @@ Clicking the ==Copy to clipboard== saves you from a tedious ++ctrl+c++ process.
 
 # Emoji
 
-:bulb: The list of Unicode emoji shortnames can be found at [Emojipedia](https://emojipedia.org/twitter/)
-
 Prefer these standard usages for emojis:
 
 | Visual        | Code            | Usage      |
@@ -30,6 +28,8 @@ Prefer these standard usages for emojis:
 | :pushpin:     | `:pushpin:`     | Exercise   |
 | :exclamation: | `:exclamation:` | Important  |
 | :book:        | `:book:`        | Read more  |
+
+:book: The list of Unicode emoji shortnames can be found at [Emojipedia](https://emojipedia.org/twitter/)
 
 # Mermaid Graphs
 

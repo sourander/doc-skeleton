@@ -18,18 +18,33 @@ print(a)
 
 Clicking the ==Copy to clipboard== saves you from a tedious ++ctrl+c++ process.
 
+# Admonitions
+
+!!! tip
+    You can add longers tips inside their own container blocks using `!!! tip ["Headline"]`, including an optional headline.
+
+!!! question "Exercise: Do it"
+    Exercise: It must be done.
+
+??? note
+    You can add longers tips inside their own container blocks using `??? <admonition>`.
+
+!!! quote
+    The way to get started is to quit talking and begin doing. *--Walt Disney*
+
 # Emoji
 
 Prefer these standard usages for emojis:
 
-| Visual        | Code            | Usage      |
-|---------------|-----------------|------------|
-| :bulb:        | `:bulb:`        | Useful tip |
-| :pushpin:     | `:pushpin:`     | Exercise   |
-| :exclamation: | `:exclamation:` | Important  |
-| :book:        | `:book:`        | Read more  |
+| Visual        | Code            | Usage         | Alt. admonition         |
+|---------------|-----------------|---------------| ----------------------- |
+| :fire:        | `:fire:`        | Short tip     | tip                     |
+| :question:    | `:pushpin:`     | Exercise      | question                |
+| :exclamation: | `:exclamation:` | Important     | N/A                     |
+| :exclamation: | `:exclamation:` | Important     | Long, off the map note. |
+| :book:        | `:book:`        | Read more     | quote                   |
 
-:book: The list of Unicode emoji shortnames can be found at [Emojipedia](https://emojipedia.org/twitter/)
+ The list of Unicode emoji shortnames can be found at :book: [Emojipedia](https://emojipedia.org/twitter/). 
 
 # Mermaid Graphs
 

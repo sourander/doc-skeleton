@@ -18,6 +18,8 @@ print(a)
 
 Clicking the ==Copy to clipboard== saves you from a tedious ++ctrl+c++ process.
 
+:book: The syntax highlighting supports all languages supported py Pygments. The full list is available [in Pygments docs](https://pygments.org/languages/)
+
 # Admonitions
 
 !!! tip
@@ -44,7 +46,7 @@ Prefer these standard usages for emojis:
 | :exclamation: | `:exclamation:` | Important     | Long, off the map note. |
 | :book:        | `:book:`        | Read more     | quote                   |
 
- The list of Unicode emoji shortnames can be found at :book: [Emojipedia](https://emojipedia.org/twitter/). 
+ :book: The list of Unicode emoji shortnames can be found at [Emojipedia](https://emojipedia.org/twitter/). 
 
 # Mermaid Graphs
 

@@ -23,7 +23,7 @@ Clicking the ==Copy to clipboard== saves you from a tedious ++ctrl+c++ process.
 # Admonitions
 
 !!! tip
-    You can add longers tips inside their own container blocks using `!!! tip ["Headline"]`, including an optional headline.
+    You can add longers tips inside their own container blocks using `!!! tip "Headline"`, including an optional headline.
 
 !!! question "Exercise: Do it"
     Exercise: It must be done.
@@ -39,7 +39,7 @@ Clicking the ==Copy to clipboard== saves you from a tedious ++ctrl+c++ process.
 Prefer these standard usages for emojis:
 
 | Visual        | Code            | Usage         | Alt. admonition         |
-|---------------|-----------------|---------------| ----------------------- |
+|--------------:|-----------------|---------------| ----------------------- |
 | :fire:        | `:fire:`        | Short tip     | tip                     |
 | :question:    | `:pushpin:`     | Exercise      | question                |
 | :exclamation: | `:exclamation:` | Important     | N/A                     |

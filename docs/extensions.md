@@ -48,6 +48,15 @@ Prefer these standard usages for emojis:
 
  :book: The list of Unicode emoji shortnames can be found at [Emojipedia](https://emojipedia.org/twitter/). 
 
+# Images
+
+Use relative path to images. Prefer SVG when possible. The image below is 800x600 SVG and has a solid white rectangle as a background to make sure text is visible in day/night mode. Created by having "Force Pixel Alignment" activated in Affinity Designer and exported using preset: `SVG (for export)`.
+
+![Image title](./images/test_image.svg)
+**Figure 1**: *Beautiful corner blobs with lots of negative space. Meaningful text in the middle. Amazing.*
+
+This is an example paragraph showing how the text flows after a caption. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eget arcu sed elit euismod fermentum eu a sem. Cras eu imperdiet urna. Praesent pulvinar metus ac justo faucibus, vel elementum ligula hendrerit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut ex libero. Integer mollis turpis porta ligula tempus, quis sodales dolor placerat. Praesent non diam vestibulum, dictum risus vel, tincidunt magna.
+
 # Mermaid Graphs
 
 ``` mermaid

@@ -19,7 +19,7 @@ theme:
         name: Switch to dark mode
 
 markdown_extensions:
-  # SYNTAX HIGHLIGHTING
+  # Syntax highlighting
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
@@ -27,12 +27,12 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
-  # EMOJIS AND ICONS
+  # Emojis and icons
   - attr_list
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
-  # MERMAID DIAGRAMS
+  # Mermaid graphs
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid

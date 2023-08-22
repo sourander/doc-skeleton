@@ -80,3 +80,25 @@ Actions after each push.
 
 The URI for the GitHub Pages is `https://<username>.github.io/<repo_name>/`. The *pages build and deployment* 
 workflow will output a link to this page.
+
+## How to squash history
+
+Let's say you have started working on a repository created using this template repo. In the beginning, your repo has been Private, and now you want to make it Public. You want to make sure there is nothing in the history that would, say, violate copyrights or include passphrases. To do this, you could squash all the commits into one. First, make sure you have committed your changes to origin **and have backed up your project**. You may lose your work if you screw up. You have been warned. To do this, do:
+
+```sh
+# Create a new orphan branch named 'new-master' based on the 'master' branch.
+# An orphan branch is a new branch that has no commit history from the source branch.
+git checkout --orphan new-master master
+
+# Create a new initial commit for the orphan branch, providing a commit message.
+# This commit serves as the starting point for your squashed commit history.
+git commit -m "Squashed all commits"
+
+# Overwrite the reference of the 'master' branch with the new orphan branch,
+# effectively replacing the old history with the new commit you just created.
+git branch -M new-master master
+
+# Forcefully push the changes to the remote repository.
+# This overwrites the remote 'master' branch with your new history.
+git push --force
+```

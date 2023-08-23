@@ -6,18 +6,60 @@
 
 ## How to use
 
-To create a new documentation project using this skeleton, run the following commands:
+To create a new documentation project using this skeleton, do the following:
+
+### 1. Instance template repository
+
+Create a repository from this template. This is guided in the [GitHub Docs](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
+
+
+### 2. Clone locally and set up Python Env
+
+You need to have Python (`3.10` or newer) installed. You also need to have [Python Poetry installed](https://python-poetry.org/docs/#installation).
+
 ```bash
 # Clone
-git clone 'this-repo-url'
+git clone 'new-repo-url'
 
 # Update your Python Poetry and install dependencies
 poetry self update
 poetry install
-
-# Consider updating the dependency versions. Test functionality before releasing.
-poetry update
 ```
+
+### 3. Define the LICENSE
+
+Use the formula in the `LICENSE.template` file. Fill in the Jinja-like slots (e.g. `{{ project }} => Project's Name`) and rename the file to `LICENSE`.
+
+### 4. Define the copyright info also into site
+
+Edit the following block to contain the information you need:
+
+```yaml
+# TODO: Replace the copyright with correct. Also add LICENCE file. Template included.
+copyright: |
+  Copyright &copy; 2023 <a href="https://www.example.com">Example Organization</a>. 
+  Licenced under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">XX-XX-XX 4.0</a>
+```
+
+### 5. Modify Docs
+
+Modify the contents of `docs/`. You `.pages` files if you need other than `[a-z]` ordering for your MarkDown files or, say, a navigation item that contains special characters (e.g. `TCP/IP`) or custom capitalization (e.g. `LaTeX `).
+
+File naming: Use only ASCII characters and underscores in file names.
+
+## 6. Run local build
+
+To build the project locally to `site/` and to run a web server, you can simply run `poetry run mkdocs serve`. Visit the site at `localhost:8080`.
+
+### 7. Build in GitHub Pages
+
+Merge to `master` branch in any Repository. The scripts at `.github/workflows/` will be executed by Github Actions.
+
+Sadly, GitHub will not automatically publish your Pages as could be expected. You need to visit the **Settings | 
+Pages** (at `https://github.com/<username>/<reponame>/settings/pages`). There, under heading **Build and 
+deployment**, choose Branch as `gh-pages` and path as `/ (root)`. Click Save. From now on, your Pages should be 
+updated whenever you push to master. You should see a workflow with a title *pages build and deployment* in your 
+Actions after each push.
 
 ## Batteries Included?
 
@@ -25,8 +67,6 @@ This template comes with two plugins:
 * [MkDocs static i18n](https://github.com/ultrabug/mkdocs-static-i18n) for multilanguage
 * [MkDocs Awesome Pages](https://github.com/lukasgeiter/mkdocs-awesome-pages-plugin) for page ordering
 
-If you do not have a reason for using multilanguage, you can also delete the dependency `poetry remove 
-mkdocs-static-i18n` and remove the plugin from `mkdocs.yml`.
 
 ## Need support for multilanguage?
 
@@ -60,21 +100,7 @@ nav:
     - ... | index*.md  # With i18n
 ```
 
-## Run local build
 
-To build the project locally to `site/`, you can simply run `poetry run mkdocs build`
-
-Alternatively, you can run the `poetry run mkdocs serve` command to run live-reloading server.
-
-## Build in GitHub Pages
-
-Merge to `master` branch in any Repository. The scripts at `.github/workflows/` will be executed by Github Actions.
-
-Sadly, GitHub will not automatically publish your Pages as could be expected. You need to visit the **Settings | 
-Pages** (at `https://github.com/<username>/<reponame>/settings/pages`). There, under heading **Build and 
-deployment**, choose Branch as `gh-pages` and path as `/ (root)`. Click Save. From now on, your Pages should be 
-updated whenever you push to master. You should see a workflow with a title *pages build and deployment* in your 
-Actions after each push.
 
 ## How to access
 
@@ -101,4 +127,11 @@ git branch -M new-master master
 # Forcefully push the changes to the remote repository.
 # This overwrites the remote 'master' branch with your new history.
 git push --force
+```
+
+If you have the project cloned on other machines, they will need to either remove the directory and clone the project again, OR, run the following commands:
+
+```sh
+git fetch origin
+git reset --hard origin/master
 ```

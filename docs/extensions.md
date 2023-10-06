@@ -34,19 +34,6 @@ Clicking the ==Copy to clipboard== saves you from a tedious ++ctrl+c++ process.
 !!! quote
     The way to get started is to quit talking and begin doing. *--Walt Disney*
 
-# Emoji
-
-Prefer these standard usages for emojis:
-
-| Visual        | Code            | Usage         | Alt. admonition         |
-|--------------:|-----------------|---------------| ----------------------- |
-| :fire:        | `:fire:`        | Short tip     | tip                     |
-| :question:    | `:pushpin:`     | Exercise      | question                |
-| :exclamation: | `:exclamation:` | Important     | N/A                     |
-| :exclamation: | `:exclamation:` | Important     | Long, off the map note. |
-| :book:        | `:book:`        | Read more     | quote                   |
-
- :book: The list of Unicode emoji shortnames can be found at [Emojipedia](https://emojipedia.org/twitter/). 
 
 # Images
 

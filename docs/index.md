@@ -11,8 +11,9 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
 ## Project layout
 
-    mkdocs.yml    # The configuration file.
+    mkdocs.yml        # The configuration file.
     docs/
-        index.md    # The documentation homepage.
-        index.fi.md # The documentation homepage in Finnish.
-        ...         # Other markdown pages, images and other files.
+        index.md      # The documentation homepage.
+        extensions.md # Extensions How-To
+        .pages        # Awesome Pages plugin configuration
+        ...           # Other markdown pages, images and other files.

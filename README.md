@@ -22,8 +22,9 @@ You need to have Python (`3.10` or newer) installed. You also need to have [Pyth
 git clone 'new-repo-url'
 
 # Update your Python Poetry and install dependencies
+# Ignoring the root package(s), because we have none.
 poetry self update
-poetry install
+poetry install --no-root
 ```
 
 ### 3. Define the LICENSE

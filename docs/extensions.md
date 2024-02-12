@@ -2,25 +2,64 @@
 
 Below, you can see a demonstration of all extensions that have been activated in the default `mkdocs.yml` file.
 
-## Syntax highlighting
+## Text related
+
+* You can use Emojis using `:smiley:` type syntax. :smiley: The whole list of supported Unicode emojis and their names can be found at: [Material for MkDocs: Icons, Emojis](https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/)
+* Your text can contain footnotes [^example]. They are marked with `[^something]` in-text and `[^something]:` in the reference list. Note the `:` in the latter. [^another]
+* You can make text ==yellow== by writing it between a pair of equal symbols: `==something==`.
+* You can add keyboard buttons like ++ctrl+alt+del++ by adding them between a pair of plus signs symbols, separated by a single plus sign symbol: `++ctrl+c++`
+
+Notice that you can also make checkbox lists:
+
+- [x] Lorem
+- [x] Ipsum
+- [x] Dolor
+- [ ] Sit
+- [ ] Amet
+
+## Code blocks
+
+### Syntax highlighting
 
 The code block also demonstrates the copy code, annotation, mark text and keyboard keys functionalities
 
 ```python
+# Note: Try also clicking the "Copy to Clipboard" icon ===>
 import os
 
 a = os.name + '-' + 'cat' # (1)
 print(a)
 ```
 
-1.  :cat: I'm a code annotation! I can contain `code`, **formatted
-    text**, images, ... basically anything that can be written in Markdown.
-
-Clicking the ==Copy to clipboard== saves you from a tedious ++ctrl+c++ process.
+1.  :cat: I'm a code annotation! I can contain `code`, **formatted text**, images, ... basically anything that can be written in Markdown.
 
 :book: The syntax highlighting supports all languages supported py Pygments. The full list is available [in Pygments docs](https://pygments.org/languages/)
 
-# Admonitions
+### Content tabs
+
+The code blocks can use "Content tabs" for various scenarios, such as: 
+
+* different programming language examples
+* hosting contents of multiple relating files
+
+=== "C"
+
+    ```c title="hello.c"
+    #include <stdio.h>
+
+    int main(void) {
+      printf("Hello world!\n");
+      return 0;
+    }
+    ```
+
+=== "Python"
+
+    ```python title="hello.py"
+    print("Hello world!")
+    ```
+
+## Admonitions
 
 !!! tip
 
@@ -28,7 +67,7 @@ Clicking the ==Copy to clipboard== saves you from a tedious ++ctrl+c++ process.
 
 !!! question "Exercise: Do it"
 
-    Exercise: It must be done.
+    The `question` adminition is a good for exercises.
 
 ??? note
 
@@ -78,9 +117,16 @@ Below is a line diagram created in Adobe Illustrator and exported as SVG. The ba
 
 # Mermaid Graphs
 
+Mermaid graphs can be used to create simple DAG's and similar. Note that not all Mermaid syntax is supported. Test it using Material for MkDocs before spending 10 hours developing it in some other tool.
+
 ```mermaid
-flowchart LR
+flowchart TD
     Markdown-->Git-->|magic|Success
 ```
 
 :book: Check more at [Mermaid Tutorials](https://mermaid.js.org/config/Tutorials.html)
+
+## Reference list
+
+[^example]: This is an example.
+[^another]: This is another example.

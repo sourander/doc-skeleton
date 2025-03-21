@@ -8,7 +8,8 @@
 
 To create a new documentation project using this skeleton, do the following:
 
-### 1. Instance template repository
+
+### 1. Create new repository
 
 Create a repository from this template. This is guided in the [GitHub Docs](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
 
@@ -24,34 +25,62 @@ git clone 'new-repo-url'
 cd 'new-repo-name'
 
 # Let uv create the virtual environment
-# and build and serve the site
+# and build and serve the site. Close with CTRL+C when done.
 uv run mkdocs serve --open
 ```
 
-### 3. Define the LICENSE
 
-Use the formula in the `LICENSE.template` file. Fill in the Jinja-like slots (e.g. `{{ project }} => Project's Name`) and rename the file to `LICENSE`.
+### 3. Define the siteinfo.json
 
-### 4. Define the copyright info also into site
+The `siteinfo.json` should follow the Pydantic Schema from [gh:sourander/doc-flesh/src/doc_flesh/models/models.py](https://github.com/sourander/doc-flesh/blob/main/src/doc_flesh/models/models.py).
 
-Edit the following block to contain the information you need:
+```
+class SiteCategory(str, Enum):
+    pass
 
-```yaml
-# TODO: Replace the copyright with correct. Also add LICENCE file. Template included.
-copyright: |
-  Copyright &copy; 2023 <a href="https://www.example.com">Example Organization</a>. 
-  Licenced under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">XX-XX-XX 4.0</a>
+class SiteInfo(BaseModel):
+    # MkDocs
+    site_name: str
+    site_uses_mathjax: bool = False
+    ...
+    # sourander.github.io
+    category: SiteCategory
+    related_repo: str = ""
 ```
 
-### 5. Modify Docs
+See the local `siteinfo.json` for an example of the actual implementation.
 
-Modify the contents of `docs/`. You `.pages` files if you need other than `[a-z]` ordering for your MarkDown files or, say, a navigation item that contains special characters (e.g. `TCP/IP`) or custom capitalization (e.g. `LaTeX `).
 
-File naming: Use only ASCII characters and underscores in file names.
+### 4. Add the flesh
+
+Note that this flesh is brought in typically using [doc-flesh](https://github.com/sourander/doc-flesh) tool, like this:
+
+```
+cd ~/Code/something/
+git clone https://github.com/sourander/doc-flesh
+cd doc-flesh
+
+# Add the new repo to your doc-flesh config
+code -n ~/.config/doc-flesh/config.yaml
+
+# Run
+uv run doc-flesh sync
+```
+
+For more information, check the [doc-flesh](https://github.com/sourander/doc-flesh) repository.
+
+
+### 5. Modify content
+
+Modify the contents of `docs/`. User `.nav.yml` files if you need other than `[a-z]` ordering for your MarkDown files or, say, a navigation item that contains special characters (e.g. `TCP/IP`) or custom capitalization (e.g. `LaTeX`). For more information, check the [Awesome Nav for MkDocs](https://lukasgeiter.github.io/mkdocs-awesome-nav/) documentation.
+
+**File naming:** Use only typical ASCII characters (`[A-Za-z0-9_-]`).
+
 
 ## 6. Run local build
 
 To build the project locally to `site/` and to run a web server, you can simply run `uv run mkdocs serve --open`. This will open your default browser at the site (`http://localhost:8080`).
+
 
 ### 7. Build in GitHub Pages
 
@@ -62,6 +91,7 @@ Pages** (at `https://github.com/<username>/<reponame>/settings/pages`). There, u
 deployment**, choose Branch as `gh-pages` and path as `/ (root)`. Click Save. From now on, your Pages should be 
 updated whenever you push to main. You should see a workflow with a title *pages build and deployment* in your 
 Actions after each push.
+
 
 ## Batteries Included?
 

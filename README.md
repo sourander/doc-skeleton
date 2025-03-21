@@ -114,35 +114,46 @@ uv add mkdocs-static-i18n
 Add the following to the `mkdocs.yml` file:
 
 ```yaml
-plugins:
-  - i18n:
-      docs_structure: suffix
-      default_language: en
-      languages:
-        en:
-          name: English
-          build: true
-        fi:
-          name: Finnish
-          build: true
-      # You can translate navigation items here if need be
-      nav_translations:
-        fi:
-          Some Headline: Jokin otsikko
+# plugins:
+#   - search
+#   - awesome-pages
+     - i18n:
+        docs_structure: suffix
+        default_language: fi
+        languages:
+            - locale: fi
+            name: Finnish
+            build: true
+            - locale: en
+            default: true
+            name: English
+            build: true
 ```
 
-**NOTE:** You will need to modify the `.pages` files if you are using both Awesome Pages and i18n together. Example below.
+The `.nav.yml` files should not need any modifications due to the `mkdocs-awesome-nav` plugin. It's predecessor, called `mkdocs-awesome-pages-plugin`, required a bit more work. From now on, you can add translations to any files by simply adding a new file into the folder structure, like this:
 
-```yaml
-nav:
-    - index.md         # Without i18n
-    - ... | index*.md  # With i18n
+````
+.
+├── LICENSE.template
+├── README.md
+├── docs
+│   ├── example_dir/
+│   │   ├── alpha.md
+│   │   └── omega.md
+│   ├── extensions.en.md # English version
+│   ├── extensions.md
+│   ├── images/
+│   ├── index.en.md      # English version
+│   └── index.md
+├── ...
+└── uv.lock
 ```
+
+NOTE! If a file does NOT have a translation, the original file will be used. For example, the `alpha.md` and `omage.md` would display in Finnish whether the language selector has been set to English or Finnish.
 
 ## How to access
 
-The URI for the GitHub Pages is `https://<username>.github.io/<repo_name>/`. The *pages build and deployment* 
-workflow will output a link to this page.
+The URI for the GitHub Pages is `https://<username>.github.io/<repo_name>/`. The *pages build and deployment* workflow will output a link to this page.
 
 ## How to squash history
 

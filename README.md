@@ -96,7 +96,7 @@ Actions after each push.
 ## Batteries Included?
 
 This template comes with one plugins:
-* [MkDocs Awesome Pages](https://github.com/lukasgeiter/mkdocs-awesome-pages-plugin) for page ordering
+* [Awesome Nav for MkDocs](https://lukasgeiter.github.io/mkdocs-awesome-nav/) for page ordering
 
 
 ## Need support for multilanguage?

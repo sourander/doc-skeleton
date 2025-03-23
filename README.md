@@ -35,20 +35,11 @@ uv run mkdocs serve --open
 The `siteinfo.json` should follow the Pydantic Schema from [gh:sourander/doc-flesh/src/doc_flesh/models/models.py](https://github.com/sourander/doc-flesh/blob/main/src/doc_flesh/models/models.py).
 
 ```
-class SiteCategory(str, Enum):
-    pass
-
-class SiteInfo(BaseModel):
-    # MkDocs
-    site_name: str
-    site_uses_mathjax: bool = False
-    ...
-    # sourander.github.io
-    category: SiteCategory
-    related_repo: str = ""
+# Easy way: use the doc-flehs's generate-siteinfo command
+uvx git+https://github.com/sourander/doc-flesh generate-siteinfo
 ```
 
-See the local `siteinfo.json` for an example of the actual implementation.
+See the local `siteinfo.json` for an example of the actual implementation that is results to.
 
 
 ### 4. Add the flesh

@@ -11,7 +11,7 @@ Create a repository from this template. This is guided in the [GitHub Docs](http
 
 ### 2. Clone locally and set up Python Env
 
-You need to have Python (`3.10` or newer) installed. You also need to have [uv](https://docs.astral.sh/uv/) installed.
+You need to have Python (`3.12` or newer) installed. You also need to have [uv](https://docs.astral.sh/uv/) installed.
 ```bash
 # Clone
 git clone 'new-repo-url' && cd 'new-repo-name'
@@ -65,7 +65,7 @@ Modify the contents of `docs/`. Read more at [Material for MkDocs](https://squid
 Use `.nav.yml` files to define the structure of the site. Read more at [Awesome Nav for MkDocs](https://lukasgeiter.github.io/mkdocs-awesome-nav/) documentation.
 
 
-## 7. Run local build
+### 7. Run local build
 
 To build the project locally to `site/` and to run a web server, you can simply run `uv run mkdocs serve --open`. This will open your default browser at the site (`http://localhost:8080`).
 
@@ -79,65 +79,6 @@ Pages** (at `https://github.com/<username>/<reponame>/settings/pages`). There, u
 deployment**, choose Branch as `gh-pages` and path as `/ (root)`. Click Save. From now on, your Pages should be 
 updated whenever you push to main. You should see a workflow with a title *pages build and deployment* in your 
 Actions after each push.
-
-
-## Batteries Included?
-
-This template comes with one plugins:
-* [Awesome Nav for MkDocs](https://lukasgeiter.github.io/mkdocs-awesome-nav/) for page ordering
-
-
-## Need support for multilanguage?
-
-For this, you need to install new plugin:
-
-* [MkDocs static i18n](https://github.com/ultrabug/mkdocs-static-i18n) for multilanguage support
-
-Using `uv`, you would add it like this:
-
-```sh
-uv add mkdocs-static-i18n
-```
-
-Add the following to the `mkdocs.yml` file:
-
-```yaml
-# plugins:
-#   - search
-#   - awesome-pages
-     - i18n:
-        docs_structure: suffix
-        default_language: fi
-        languages:
-            - locale: fi
-            name: Finnish
-            build: true
-            - locale: en
-            default: true
-            name: English
-            build: true
-```
-
-The `.nav.yml` files should not need any modifications due to the `mkdocs-awesome-nav` plugin. It's predecessor, called `mkdocs-awesome-pages-plugin`, required a bit more work. From now on, you can add translations to any files by simply adding a new file into the folder structure, like this:
-
-```sh
-.
-├── LICENSE.template
-├── README.md
-├── docs
-│   ├── example_dir/
-│   │   ├── alpha.md
-│   │   └── omega.md
-│   ├── extensions.en.md # English version
-│   ├── extensions.md
-│   ├── images/
-│   ├── index.en.md      # English version
-│   └── index.md
-├── ...
-└── uv.lock
-```
-
-NOTE! If a file does NOT have a translation, the original file will be used. For example, the `alpha.md` and `omage.md` would display in Finnish whether the language selector has been set to English or Finnish.
 
 ## How to access
 

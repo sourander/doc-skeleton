@@ -84,22 +84,22 @@ pymdownx.tasklist.custom_checkbox = true
 
 Example:
 
-- [x] Create the*course repository
-- [x] Update the site*configuration
-- [x] Add the*course content
+- [x] Create the course repository
+- [x] Update the site configuration
+- [x] Add the course content
 - [ ] Publish the site
 
 ## Code blocks
 
 ### Syntax highlighting
 
-Syntax highlighting is configured with `pymdownx.highlight`, while fenced and inline code are enabled*with `pymdownx.superfences` and `pymdownx.inlinehilite`.
+Syntax highlighting is configured with `pymdownx.highlight`, while fenced and inline code are enabled with `pymdownx.superfences` and `pymdownx.inlinehilite`.
 
 The copy and annotation buttons are theme features:
 
 ```toml
 [project.theme]
-features = *
+features = [
     "content.code.annotate",
     "content.code.copy",
 ]

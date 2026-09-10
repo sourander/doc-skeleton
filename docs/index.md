@@ -4,7 +4,6 @@ This repository is a template for creating course documentation with Zensical an
 
 ## Create a course repository
 
-
 1. Navigate to Github. Link in the top-right corner of this page.
 2. Select **Use this template** on GitHub.
 3. Create and name the new course repository.

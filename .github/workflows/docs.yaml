@@ -1,4 +1,4 @@
-name: mkdocs-merge
+name: Documentation
 
 on:
   push:

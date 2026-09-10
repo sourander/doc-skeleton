@@ -1,50 +1,136 @@
-# Extensions How-To
+# Features & Extensions
 
-Below, you can see a demonstration of all extensions that have been activated in the default `mkdocs.yml` file.
+This page demonstrates the features enabled in the default `zensical.toml` of **doc-skeleton**. Zensical separates configuration into three categories:
 
-## Text related
+- Built-in plugins are enabled under `[project.plugins]`, for example `[project.plugins.awesome-nav]`.
+- Markdown extensions are enabled under `[project.markdown_extensions]`, for example `footnotes = {}`.
+- Theme features are enabled in the `features` list under `[project.theme]`.
 
-* You can use Emojis using `:smiley:` type syntax. :smiley: The whole list of supported Unicode emojis and their names can be found at: [Material for MkDocs: Icons, Emojis](https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/)
-* Your text can contain footnotes [^example]. They are marked with `[^something]` in-text and `[^something]:` in the reference list. Note the `:` in the latter. [^another]
-* You can make text ==yellow== by writing it between a pair of equal symbols: `==something==`.
-* You can add keyboard buttons like ++ctrl+alt+del++ by adding them between a pair of plus signs symbols, separated by a single plus sign symbol: `++ctrl+c++`
+Supported plugins and Markdown extensions are included with Zensical unless their documentation explicitly requires another package.
 
-Notice that you can also make checkbox lists:
+## Navigation with awesome-nav
 
-- [x] Lorem
-- [x] Ipsum
-- [x] Dolor
-- [ ] Sit
-- [ ] Amet
+The built-in `awesome-nav` plugin is enabled with:
+
+```toml
+[project.plugins.awesome-nav]
+```
+
+Navigation is configured with `.nav.yml` files inside `docs/` and its subdirectories. For example:
+
+```yaml title="docs/some/dir/.nav.yml"
+nav:
+  - filename.md
+  - another_file.md
+  - directory
+  - another_dir
+  - "*"
+  - last_file.md
+```
+
+Use `"*"` to include files and directories that have not been listed explicitly. The asterisk must be quoted because it has a special meaning in YAML.
+
+## Text-related features
+
+The following features are enabled under `[project.markdown_extension]`.
+
+### Emojis
+
+Emoji shortcodes are enabled by the configuration:
+
+```toml
+pymdownx.emoji.emoji_index = "zensical.extensions.emoji.twemoji"
+pymdownx.emoji.emoji_generator = "zensical.extensions.emoji.to_svg"
+```
+
+Write an emoji shortcode such as `:smiley:` to render :smiley:.
+
+See [Icons and Emojis](https://zensical.org/docs/authoring/icons-emojis/).
+
+### Footnotes
+
+Footnotes are enabled with:
+
+```toml
+footnotes = {}
+```
+
+Add a reference such as `[^example]` to the text and define it elsewhere with `[^example]:`. Here is one footnote reference [^example].
+
+### Highlighting and text formatting
+
+Various text formatting features are enabled with e.g.:
+
+```toml
+pymdownx.caret = {}
+pymdownx.mark = {}
+pymdownx.tilde = {}
+pymdownx.keys = {}
+```
+Examples are:
+
+- This is a caret (underlining): ^^insertion^^.
+- This is a mark: ==highlight==.
+- This is a tilde (deletion): ~~deletion~~.
+- This is a key: ++ctrl+alt+del++.
+
+### Task lists
+
+Task lists and custom checkboxes are enabled with:
+
+```toml
+pymdownx.tasklist.custom_checkbox = true
+```
+
+Example:
+
+- [x] Create the*course repository
+- [x] Update the site*configuration
+- [x] Add the*course content
+- [ ] Publish the site
 
 ## Code blocks
 
 ### Syntax highlighting
 
-The code block also demonstrates the copy code, annotation, mark text and keyboard keys functionalities
+Syntax highlighting is configured with `pymdownx.highlight`, while fenced and inline code are enabled*with `pymdownx.superfences` and `pymdownx.inlinehilite`.
 
-```python
-# Note: Try also clicking the "Copy to Clipboard" icon ===>
-import os
+The copy and annotation buttons are theme features:
 
-a = os.name + '-' + 'cat' # (1)
-print(a)
+```toml
+[project.theme]
+features = *
+    "content.code.annotate",
+    "content.code.copy",
+]
 ```
 
-1.  :cat: I'm a code annotation! I can contain `code`, **formatted text**, images, ... basically anything that can be written in Markdown.
+Example:
 
-:book: The syntax highlighting supports all languages supported py Pygments. The full list is available [in Pygments docs](https://pygments.org/languages/)
+```python title="example_code.py"
+import os
+
+platform_name = os.name # (1)
+print(platform_name)
+```
+
+1. :cat: Code annotations can contain formatted markdown.
+
+Syntax highlighting supports the languages available in [Pygments](https://pygments.org/languages/)
 
 ### Content tabs
 
-The code blocks can use "Content tabs" for various scenarios, such as: 
+Content tabs are enabled with:
 
-* different programming language examples
-* hosting contents of multiple relating files
+```toml
+pymdownx.tabbed.alternate_style = true
+```
+
+They also rely on `pymdownx.superfences` when tabs contain fenced code blocks.
 
 === "C"
 
-    ```c title="hello.c"
+    ``` c
     #include <stdio.h>
 
     int main(void) {
@@ -55,78 +141,114 @@ The code blocks can use "Content tabs" for various scenarios, such as:
 
 === "Python"
 
-    ```python title="hello.py"
-    print("Hello world!")
+
+    ```python
+    def main():
+        print("Hello world!")
     ```
+
 
 ## Admonitions
 
-!!! tip
+Admonitions are enabled with:
 
-    You can add longers tips inside their own container blocks using `!!! tip "Headline"`, including an optional headline.
+```toml
+admonition = {}
+pymdownx.details = {}
+```
 
-!!! question "Exercise: Do it"
+The `admonition` extension provides regular admonitions beginning with `!!!`. The `pymdownx.details` extension provides collapsible admonitions beginning with `???`.
 
-    The `question` adminition is a good for exercises.
+!!! tip "Tip"
 
-??? note
+    Use `!!! tip "Title"` to create an admonition with a custom title.
 
-    You can add longers tips inside their own container blocks using `??? <admonition>`. Note that there must be an empty line before and after the admonition line. The adminition text body must be indented with 4 spaces.
+!!! question "Exercise"
+
+    The `question` type is useful for exercises and assignments.
+
+??? note "More information"
+
+    Use*`??? note` to create a collapsed block that the reader can open.
 
 !!! quote
 
-    The way to get started is to quit talking and begin doing. *--Walt Disney*
+    The way to get started is to quit talking and begin doing. *Walt Disney*
 
-# Images
+The body of an admonition must be indented by four spaces.
 
-Use relative path to images. Prefer SVG when possible. The image below is 800x600 SVG and has a solid color rectangle as a background to make sure any text is visible in day/night mode. The color of the background is `HSL(0,0,90)` which results to `rgb(231,231,231)`.
+## Images and glightbox
 
+Use relative paths for local images and prefer SVG for diagrams and illustrations. A solid light background helps keep text and lines visible in both light and dark modes.
 
-![Image title](./images/test_image.svg)
-**Figure 1**: *Beautiful corner blobs with lots of negative space. Meaningful text in the middle. Absolutely splendid artwork.*
+The built*in `*lightbox` plugin is enabled with:
 
-This is an example paragraph showing how the text flows after a caption. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eget arcu sed elit euismod fermentum eu a sem. Cras eu imperdiet urna. Praesent pulvinar metus ac justo faucibus, vel elementum ligula hendrerit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut ex libero. Integer mollis turpis porta ligula tempus, quis sodales dolor placerat. Praesent non diam vestibulum, dictum risus vel, tincidunt magna.
-
-## How to: Affinity Designer
-
-Toggle the "Force Pixel Alignment" on when creating artwork. After it is done, export using preset: `SVG (for export)`.
-
-## How to: Adobe Illustrator
-
-Create a New Document with the following settings:
-* Units: Pixels
-* Color Mode: RGB
-* Preview Mode: Pixel
-
-Also, set on the: `View => Snap to Pixel`.
-
-After the artwork is done, export using: `File => Export => Export As... => SVG`. Toggle both ==Minify== and ==Responsive== on. Proper amount of decimal places is 1. Most of your objects should match to the pixel grid anways since the "Snap to Pixel" is on.
-
-## How to: Excalidraw
-
-Excalidraw's font is causing problems, so you may want to use PNG. However, you should also save the `*.excalidraw` file to `images/` for future editing. You can simply drag and drop the file to the Excalidraw's web editor to open it.
-
-To export the PNG, remember to have the `Background [x]` on. Otherwise the graphic will be transparent and the text or lines may not be visible in dark mode.
-
-## A More Elaborate Example
-
-Below is a line diagram created in Adobe Illustrator and exported as SVG. The background color is HSB(0,0,95) in this case which results to `rgb(242,242,242)`.
-
-![Line diagram showing correlation between time spendt and the amazingness of art](./images/test_image_diagram.svg)
-**Figure 1**: *Beautiful corner blobs with lots of negative space. Meaningful text in the middle. Absolutely splendid artwork.*
-
-# Mermaid Graphs
-
-Mermaid graphs can be used to create simple DAG's and similar. Note that not all Mermaid syntax is supported. Test it using Material for MkDocs before spending 10 hours developing it in some other tool.
-
-```mermaid
-flowchart TD
-    Markdown-->Git-->|magic|Success
+```toml
+[project.plugins.glightbox]
 ```
 
-:book: Check more at [Mermaid Tutorials](https://mermaid.js.org/config/Tutorials.html)
+It makes rendered images clickable. Select the image below to open the pop-up lightbox.
 
-## Reference list
+![Test image](./images/test_image.svg)
 
-[^example]: This is an example.
-[^another]: This is another example.
+**Figure 1:** *An example SVG illustration. Note that the image is an SVG with small dimensions. Thus, the image in the lightbox will be displayed with a smaller size than on the page, which uses percentage-based sizing.*
+
+## Affinity Designer
+
+Enable **Force Pixel Alignment** while creating the artwork. Export the finished image with the `SVG (for export)` preset.
+
+### Adobe Illustrator
+
+Create the document with these settings:
+
+- Units: Pixels
+- Color mode: RGB
+- Preview mode: Pixel
+
+Enable `View > Snap to Pixel`.
+
+Export the finished artwork with `File > Export > Export As... > SVG`. Enable **Minify** and **Responsive**. One decimal place is usually sufficient when shapes have been aligned to the pixel grid.
+
+### Excalidraw
+
+Excalidraw diagrams can be exported as SVG or PNG. Keep the original `.excalidraw` file in `docs/images/` so the diagram can be edited later. You could also use Excalidraw Extension on VS Code, but that is outside the scope of this example.
+
+When exporting PNG files, enable the background. Transparent background may make text or lines difficult to see in dark mode.
+
+## Diagram example
+
+The diagram below is an SVG with a light background. Select it to open it with `glightbox`.
+
+![Diagram](./images/test_image_diagram.svg)
+
+**Figure 2:** *Line diagram showing the relationship between time spent and the quality of artwork*
+
+## Mermaid diagrams
+
+Mermaid diagrams are a type of diagram that can be created using a simple text-based syntax. They are particularly useful for creating flowcharts, sequence diagrams, and other types of diagrams. Their rendering is enabled with the `pymdownx.superfences` extension, which allows for custom fenced code blocks:
+
+```toml 
+[project.markdown_extensions]
+pymdownx.superfences.custom_fences = [
+  { name = "mermaid", class = "mermaid", format = "pymdownx.superfences.fence_code_format" },
+]
+```
+
+Create a diagram with a fenced code block named `mermaid`:
+
+``` mermaid
+graph LR
+  A[Start] --> B{Error?};
+  B -->|Yes| C[Hmm...];
+  C --> D[Debug];
+  D --> B;
+  B ---->|No| E[Yay!];
+```
+
+See the [Mermaid documentation](https://mermaid.ai/open-source/syntax/examples.html) for more examples.
+
+## Features outside this template
+
+Features such as LaTeX and MathJax are not configured in the basic **doc-skeleton** template. Project-wide additions and configuration synchronization are handled separately by [doc-flesh](https://github.com/sourander/doc-flesh).
+
+[^example]: *This footnote is rendered because `footnotes = {}` enables the Python Markdown Footnotes extension.*

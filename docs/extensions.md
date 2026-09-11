@@ -67,6 +67,7 @@ pymdownx.mark = {}
 pymdownx.tilde = {}
 pymdownx.keys = {}
 ```
+
 Examples are:
 
 - This is a caret (underlining): ^^insertion^^.
@@ -141,12 +142,10 @@ They also rely on `pymdownx.superfences` when tabs contain fenced code blocks.
 
 === "Python"
 
-
     ```python
     def main():
         print("Hello world!")
     ```
-
 
 ## Admonitions
 
@@ -191,7 +190,7 @@ It makes rendered images clickable. Select the image below to open the pop-up li
 
 ![Test image](./images/test_image.svg)
 
-**Figure 1:** *An example SVG illustration. Note that the image is an SVG with small dimensions. Thus, the image in the lightbox will be displayed with a smaller size than on the page, which uses percentage-based sizing.*
+**Figure 1:** _An example SVG illustration. Note that the image is an SVG with small dimensions. Thus, the image in the lightbox will be displayed with a smaller size than on the page, which uses percentage-based sizing._
 
 ## Affinity Designer
 
@@ -221,13 +220,13 @@ The diagram below is an SVG with a light background. Select it to open it with `
 
 ![Diagram](./images/test_image_diagram.svg)
 
-**Figure 2:** *Line diagram showing the relationship between time spent and the quality of artwork*
+**Figure 2:** _Line diagram showing the relationship between time spent and the quality of artwork_
 
 ## Mermaid diagrams
 
 Mermaid diagrams are a type of diagram that can be created using a simple text-based syntax. They are particularly useful for creating flowcharts, sequence diagrams, and other types of diagrams. Their rendering is enabled with the `pymdownx.superfences` extension, which allows for custom fenced code blocks:
 
-```toml 
+```toml
 [project.markdown_extensions]
 pymdownx.superfences.custom_fences = [
   { name = "mermaid", class = "mermaid", format = "pymdownx.superfences.fence_code_format" },
@@ -236,7 +235,7 @@ pymdownx.superfences.custom_fences = [
 
 Create a diagram with a fenced code block named `mermaid`:
 
-``` mermaid
+```mermaid
 graph LR
   A[Start] --> B{Error?};
   B -->|Yes| C[Hmm...];
@@ -251,4 +250,4 @@ See the [Mermaid documentation](https://mermaid.ai/open-source/syntax/examples.h
 
 Features such as LaTeX and MathJax are not configured in the basic **doc-skeleton** template. Project-wide additions and configuration synchronization are handled separately by [doc-flesh](https://github.com/sourander/doc-flesh).
 
-[^example]: *This footnote is rendered because `footnotes = {}` enables the Python Markdown Footnotes extension.*
+[^example]: _This footnote is rendered because `footnotes = {}` enables the Python Markdown Footnotes extension._

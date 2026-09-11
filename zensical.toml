@@ -2,21 +2,19 @@
 variant = "modern"
 site_name = "Skeleton for Documentation Project"
 site_url = "https://sourander.github.io/doc-skeleton/"
+site_author = "Jani Sourander"
 repo_name = "sourander/doc-skeleton"
 repo_url = "https://github.com/sourander/doc-skeleton"
-site_author = "Jani Sourander"
 language = "fi"
 
 copyright = """
 Copyright &copy; 2026 <a href="https://www.kamk.fi">Kajaanin Ammattikorkeakoulu Oy</a>.
-Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">BY-NC-SA 4.0</a>.
+Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">BY-NC-SA 4.0</a>
 """
-
 
 # Built-in plugins
 [project.plugins.awesome-nav]
 [project.plugins.glightbox]
-
 
 # Theme
 [project.theme]
@@ -35,7 +33,6 @@ features = [
 #logo = "lucide/smile"
 repo = "fontawesome/brands/github"
 
-
 # Theme palettes
 [[project.theme.palette]]
 scheme = "default"
@@ -46,7 +43,6 @@ toggle.name = "Switch to dark mode"
 scheme = "slate"
 toggle.icon = "lucide/moon"
 toggle.name = "Switch to light mode"
-
 
 # Markdown extensions
 [project.markdown_extensions]
